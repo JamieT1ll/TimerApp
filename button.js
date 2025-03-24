@@ -333,13 +333,16 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
         if (permissionState === 'granted') {
           console.log('Permission granted');
           startMotionTracking();
+          document.getElementById("myActivity").innerText = "permission granted";
         } else {
           console.error('Permission denied');
+          document.getElementById("myActivity").innerText = "permission denied";
         }
       })
       .catch((error) => console.error('Permission request error:', error));
   } else {
     console.log('requestPermission not required or supported on this browser');
+    document.getElementById("myActivity").innerText = "permission unsupport";
     startMotionTracking(); // Directly start if not iOS or permission not needed
   }
   

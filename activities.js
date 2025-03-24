@@ -1,10 +1,5 @@
 let currentDate = new Date();
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (!window.indexedDB) {
-        alert("Sorry! Your browser does not support IndexedDB");
-        return;
-    }
 
     let db;
     let logsDB;
@@ -321,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.incrementDate = incrementDate;
     window.decrementDate = decrementDate;
     window.StartActivity = StartActivity;
-});
+
 
 function revealpopup(){
     document.getElementById("activepopup").style.visibility = "visible";

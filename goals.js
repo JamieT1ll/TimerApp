@@ -2,11 +2,6 @@ let currentDate = new Date();
 currentDate.setHours(0, 0, 0, 0); // Set currentDate to the start of the day
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    if (!window.indexedDB) {
-        alert("Sorry! Your browser does not support IndexedDB");
-        return;
-    }
 
     let goalsDB;
     let activityDB;
@@ -404,7 +399,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.startgoals = startgoals;
     window.incrementDate = incrementDate;
     window.decrementDate = decrementDate;
-});
+
 
 function revealpopup(){
     document.getElementById("goalpopup").style.visibility = "visible";
