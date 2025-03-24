@@ -15,7 +15,7 @@ body, html {
 }
 
 .Title img {
-    max-width: 50%; /* Adjust the width as needed */
+    max-width: 40vh; /* Adjust the width as needed */
     height: auto; /* Keeps the aspect ratio */
 }
 
@@ -42,8 +42,8 @@ body, html {
 }
 
 .button-main {
-    width: 260px;
-    height: 260px;
+    width: 15vh;
+    height: 15vh;
     border-radius: 50%;
     border: none;
     background-color: lightgrey;
@@ -55,8 +55,8 @@ body, html {
 }
 
 .button {
-    width: 200px;
-    height: 200px;
+    width: 10vh;
+    height: 10vh;
     border-radius: 50%;
     border: none;
     background-color: lightgrey;

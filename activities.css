@@ -176,7 +176,8 @@
         display: flex;
     justify-content: center;   /* Centers buttons horizontally */
     align-items: center;       /* Centers buttons vertically */
-    flex-direction: row;       /* Keeps buttons in a row, horizontally */     
+    flex-direction: row;       /* Keeps buttons in a row, horizontally */ 
+    color:black    
     }
 
     #activityDropdown {
