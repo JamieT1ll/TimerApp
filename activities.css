@@ -106,6 +106,7 @@
     margin: 10px;
     padding: 10px;
     flex: 1;
+    color: black;
 }
 
 .buttonrow button:hover{

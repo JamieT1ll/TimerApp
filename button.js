@@ -407,12 +407,16 @@ function requestPermission() {
         );
   
         // Adjust the threshold if necessary
-        if (magnitude > 22) {
-          stepCount++;
-          totalTime += timePerStep;
-          console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-          document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
-        }
+        if (magnitude > 50) {
+            // Delay the execution of the code by 500ms
+            setTimeout(() => {
+              stepCount++;
+              totalTime += timePerStep;
+              console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
+              document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
+            }, 500); // 500 milliseconds = 0.5 seconds
+          }
+          
       }
     });
   
