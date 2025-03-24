@@ -6,7 +6,7 @@ var isPaused = false; // Tracks if the timer is paused
 var workMode = null;
 let stepCount = 0;
 let totalTime = 0; // Time in seconds
-const timePerStep = 1; // Example: Add 1 second per step
+ // Example: Add 1 second per step
 
 var goalDB; // IndexedDB database
 var db, logDB, scheduleDB, deadlineDB;
@@ -411,7 +411,6 @@ function requestPermission() {
             // Delay the execution of the code by 500ms
             setTimeout(() => {
               stepCount++;
-              totalTime += timePerStep;
               console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
             }, 700); // 500 milliseconds = 0.5 seconds
