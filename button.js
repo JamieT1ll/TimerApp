@@ -362,7 +362,8 @@ function requestPermission() {
   
   function startMotionTracking() {
     console.log('Starting motion tracking...');
-  
+    document.getElementById("stepcount").style.visibility = "visible";
+
     window.addEventListener('devicemotion', (event) => {
       const { acceleration } = event;
   
@@ -374,13 +375,13 @@ function requestPermission() {
         );
   
         // Adjust the threshold if necessary
-        if (magnitude > 12) {
+        if (magnitude > 15) {
           stepCount++;
           // Vibrate for 500ms
             navigator.vibrate(500);
           totalTime += timePerStep;
           console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-          document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
+          document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
         }
       }
     });
@@ -601,6 +602,8 @@ function recommendActivities() {
 
 function Closepopup() {
     document.getElementById("myPopup").classList.remove("show");
+    document.getElementById("stepcount").style.visibility = "hidden";
+    document.getElementById("schedulealert").style.visibility = "hidden";
 }
 
 window.onload = function () {
