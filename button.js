@@ -321,21 +321,25 @@ function updateStopwatch() {
     document.getElementById("time").innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
 }
 
-
+var permitted;
 function requestPermission() {
     if (window.DeviceMotionEvent) {
       console.log('DeviceMotionEvent is supported');
+      alert("Please select an activity!");
     } else {
       console.error('DeviceMotionEvent not supported on this device');
+      alert("Please select an sawdwwdasdwda!");
       return;
     }
   
+    if (permitted !== 'granted'){
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
       DeviceMotionEvent.requestPermission()
-        .then((permissionState) => {
-          if (permissionState === 'granted') {
+        .then((response) => {
+          if (response === 'granted') {
             console.log('Permission granted');
             startMotionTracking();
+            permitted='granted'
             document.getElementById("myActivity").innerText = "Permission granted ✅";
           } else {
             console.error('Permission denied');
@@ -353,6 +357,7 @@ function requestPermission() {
 
       startMotionTracking();
     }
+}
   }
   
   function startMotionTracking() {
@@ -453,8 +458,7 @@ function schedcheck() {
 function pausetimer() {
 
     if (!currentActivity || !startTime) {
-        alert("No activity is currently running.");
-        return;
+        requestPermission();
     }
     else{
     if (stopwatchInterval) {
@@ -590,7 +594,7 @@ function recommendActivities() {
 
 
 
-requestPermission();
+
 
 
 function Closepopup() {
