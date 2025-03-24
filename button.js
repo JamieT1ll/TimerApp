@@ -407,14 +407,14 @@ function requestPermission() {
         );
   
         // Adjust the threshold if necessary
-        if (magnitude > 50) {
+        if (magnitude > 100) {
             // Delay the execution of the code by 500ms
             setTimeout(() => {
               stepCount++;
               totalTime += timePerStep;
               console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
-            }, 500); // 500 milliseconds = 0.5 seconds
+            }, 700); // 500 milliseconds = 0.5 seconds
           }
           
       }
