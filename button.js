@@ -25,6 +25,7 @@ function initDB() {
     request.onsuccess = function (e) {
         statedb = e.target.result;
         console.log("Database opened successfully");
+
         loadButtonState(); // Load activities after DB is ready
     };
 
@@ -59,6 +60,35 @@ function initDB() {
     request.onsuccess = function (e) {
         db = e.target.result;
         console.log("Database opened successfully");
+
+        const tx = db.transaction("activities", "readwrite");
+        const store = tx.objectStore("activities");
+        const getRequest = store.get("Walk");
+        console.log
+        getRequest.onsuccess = function() {
+            if (!getRequest.result) {
+                // If "Walk" doesn't exist, add it to the database
+                const addRequest = store.add({ 
+                    name: "Walk",   // "Walk" should be in quotes because it's a string
+                    timeSpent: 0, 
+                    mode: "Exercise"  // Assuming the mode is "Exercise"
+                });
+    
+                addRequest.onsuccess = () => {
+                    console.log("Activity 'Walk' added successfully!");
+                };
+    
+                addRequest.onerror = function(event) {
+                    console.error("Error adding 'Walk' activity:", event.target.error);
+                };
+            } else {
+                console.log("'Walk' activity already exists!");
+            }
+        };
+
+        getRequest.onerror = function(event) {
+            console.error("Error checking 'Walk' activity:", event.target.error);
+        };
         loadActivities(); // Load activities after DB is ready
     };
 
@@ -186,6 +216,9 @@ function startActivity() {
     if (!selectedActivity) {
         alert("Please select an activity!");
         return;
+    }
+    if (selectedActivity== "Walk"){
+        requestPermission();
     }
         currentActivity = selectedActivity;
         document.getElementById("myActivity").innerText = `${currentActivity}`;
@@ -325,10 +358,10 @@ var permitted;
 function requestPermission() {
     if (window.DeviceMotionEvent) {
       console.log('DeviceMotionEvent is supported');
-      alert("Please select an activity!");
+
     } else {
       console.error('DeviceMotionEvent not supported on this device');
-      alert("Please select an sawdwwdasdwda!");
+      
       return;
     }
   
@@ -340,20 +373,19 @@ function requestPermission() {
             console.log('Permission granted');
             startMotionTracking();
             permitted='granted'
-            document.getElementById("myActivity").innerText = "Permission granted ✅";
+    
           } else {
             console.error('Permission denied');
-            document.getElementById("myActivity").innerText = "Permission denied ❌";
+            
           }
         })
         .catch((error) => {
           console.error('Permission request error:', error);
-          document.getElementById("myActivity").innerText = "Permission Error ⚠️";
-          alert("perm error");
+        
         });
     } else {
       console.log('requestPermission not required or supported on this browser');
-      alert("epoc snail.");
+
 
       startMotionTracking();
     }
