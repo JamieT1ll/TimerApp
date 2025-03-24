@@ -348,12 +348,12 @@ function requestPermission() {
         })
         .catch((error) => {
           console.error('Permission request error:', error);
-          document.getElementById("myActivity").innerText = "Permission Error ⚠️";
+          document.getElementById("myActivity").innerText = "Permission Erwweweror ⚠️";
           alert("perm error");
         });
     } else {
       console.log('requestPermission not required or supported on this browser');
-      alert("epoc fail.");
+      alert("epoc snail.");
 
       startMotionTracking();
     }
