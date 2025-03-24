@@ -348,7 +348,7 @@ function requestPermission() {
         })
         .catch((error) => {
           console.error('Permission request error:', error);
-          document.getElementById("myActivity").innerText = "Permission Erwweweror ⚠️";
+          document.getElementById("myActivity").innerText = "Permission Error ⚠️";
           alert("perm error");
         });
     } else {
@@ -376,6 +376,8 @@ function requestPermission() {
         // Adjust the threshold if necessary
         if (magnitude > 12) {
           stepCount++;
+          // Vibrate for 500ms
+            navigator.vibrate(500);
           totalTime += timePerStep;
           console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
           document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
