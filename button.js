@@ -71,7 +71,7 @@ function initDB() {
                 const addRequest = store.add({ 
                     name: "Walk",   // "Walk" should be in quotes because it's a string
                     timeSpent: 0, 
-                    mode: "Exercise"  // Assuming the mode is "Exercise"
+                    mode: "Life"  // Assuming the mode is "Exercise"
                 });
     
                 addRequest.onsuccess = () => {
@@ -407,7 +407,7 @@ function requestPermission() {
         );
   
         // Adjust the threshold if necessary
-        if (magnitude > 15) {
+        if (magnitude > 22) {
           stepCount++;
           totalTime += timePerStep;
           console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);

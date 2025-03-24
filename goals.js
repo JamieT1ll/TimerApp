@@ -168,6 +168,7 @@ currentDate.setHours(0, 0, 0, 0); // Set currentDate to the start of the day
                 // Delete button
                 const deleteBtn = document.createElement("button");
                 deleteBtn.textContent = "Delete";
+                deleteBtn.classList.add("delete");
                 deleteBtn.onclick = () => removegoals(goal.id);
                 div.appendChild(deleteBtn);
     

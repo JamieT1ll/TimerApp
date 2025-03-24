@@ -27,6 +27,24 @@
   margin-top: 20px;
 }
 
+.fc-event-time
+{
+  font-size: 30px !important;
+}
+
+.fc .fc-timegrid-event {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+.fc .fc-col-header-cell {
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
+.fc-event-title.fc-sticky{
+  font-size: 40px !important;
+}
 .eventcreate:hover{
   font-size:42px;
   width: 200px;
@@ -34,6 +52,10 @@
   border-radius: 20px;
   color:#fff;
   background-color: #1a252f;
+}
+
+.fc-timegrid-slot-label {
+  font-size: 40px; /* Adjust the size */
 }
 
 #my-today-button{
@@ -70,7 +92,7 @@
 
 /* Increase the size of the event titles */
 .fc-event-title {
-    font-size: 20px !important; /* Adjust this size as needed */
+    font-size: 30px !important; /* Adjust this size as needed */
     white-space: normal !important; /* Allow the event name to wrap to the next line */
     overflow: hidden; /* Hide overflow if the event name is too long */
     text-overflow: ellipsis; /* Add ellipsis if the text is too long */
@@ -81,48 +103,64 @@
     font-size: 40px !important; /* Adjust this size as needed */
 }
 
-/* Increase the size of the event description */
-.fc-event-time {
-    font-size: 14px !important; /* Adjust this size as needed */
-}
-
-  #eventpopup {
+  #eventpopup  {
   visibility: hidden; /* Hide the entire popup */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
+  width: 600px;
+  background-color: #555;
+  color: white;
+  padding: 24px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  font-size: 50px;
+    border-radius: 20px; /* Rounded edges */
   }
-
+  .popupbuttons button
+{
+  width: 170px;;
+  height: 100px;
+  font-size: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  margin-top: 30px
+}
   #schedulepopup {
-  visibility: hidden; /* Hide the entire popup */
+    visibility: hidden; /* Hide the entire popup */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
+  width: 600px;
+  background-color: #555;
+  color: white;
+  padding: 24px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
+  font-size: 50px;
+    border-radius: 20px; /* Rounded edges */
   }
 
   #deadlinepopup {
-  visibility: hidden; /* Hide the entire popup */
+    visibility: hidden; /* Hide the entire popup */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
+  width: 600px;
+  background-color: #555;
+  color: white;
+  padding: 24px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000;}
+  z-index: 1000;
+  font-size: 50px;
+    border-radius: 20px; /* Rounded edges */
+  }
 
   .schedule-date{
     background-color: red !important;  /* Red background for important dates */
@@ -143,18 +181,6 @@
   text-align: center;
 }
 
-
-
-button#closePopup {
-  margin-top: 10px;
-  padding: 5px 10px;
-  background: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-
   .schedule{
     visibility: hidden;
   }
@@ -169,6 +195,83 @@ button#closePopup {
     padding: 20px;
     height: 60%;
 }
+input[type="text"] {
+        width: 80%;  /* Full width */
+        
+        font-size: 80px;  /* Increases font size of text input */
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;  /* Adds space below the input */
+        justify-content: center;   
+    align-items: center;       
+    flex-direction: column;   
+    color: black;
+
+    }
+
+
+    .buttons button{
+      width: 170px;;
+  height: 100px;
+  font-size: 30px;
+  margin-bottom: 30px;
+  border-radius: 20px;
+  margin-top: 30px   
+    }
+
+    #deaddropdown, #scheddropdown {
+      width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  color:black
+    }
+    
+    /* Style the dropdown arrow */
+    #activityDropdown::-ms-expand {
+        display: none;               /* Removes the default dropdown arrow in IE */
+    }
+    
+    /* Optional: Style the selected option */
+    #activityDropdown option {
+        padding: 12px;               /* Adds padding to the options */
+        font-size: 16px;             /* Font size for the option text */
+        background-color: #fff;      /* Background color of options */
+        color: #333;                 /* Text color */
+    }
+
+    input[type="date"] {
+      width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  color:black
+    }
+    input[type="time"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  color:black
+}
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 2rem;
+  color:black
+}
+
+
+    
+    /* Hover effect for options (optional) */
+    #activityDropdown option:hover {
+        background-color: #e0e0e0;   /* Change background color when hovering over an option */
+    }
 
 /* Styling for Calendar Date and Text */
 
@@ -195,9 +298,9 @@ button#closePopup {
   <div id="eventpopup">
     <span class="eventtext">
     
-      Would you like to create a **Schedule** or a **Deadline**?  
-
-      <div class="buttons">
+      Would you like to create a Schedule or a Deadline?  
+      <br>
+      <div class="popupbuttons">
         <button class="cancel" onclick="closeAllPopups()">Cancel</button>
         <button class="confirm" onclick="openSchedulePopup()">Schedule</button>
         <button class="confirm" onclick="openDeadlinePopup()">Deadline</button>
@@ -210,10 +313,10 @@ button#closePopup {
     <span class="eventtext">
     
       <p>What would your schedule like to be?</p>
-      <label>Date: <input type="date" id="scheduleDate"></label><br>
       <select id="scheddropdown">
         <option value="" disabled selected>Select an activity</option>
       </select>
+      <label>Date: <input type="date" id="scheduleDate"></label><br>
       <label>Start: <input type="time" id="scheduleStart"></label><br>
       <label>End: <input type="time" id="scheduleEnd"></label><br>
       <div class="buttons">
@@ -227,11 +330,11 @@ button#closePopup {
   <span class="eventtext">
 
     <p>What would you like your deadline to be?</p>
+    <label>Name: <input type="text" id="deadlineName"></label><br>
       <label>Date: <input type="date" id="deadlineDate"></label><br>
-      <label>Name: <input type="text" id="deadlineName"></label><br>
-      <select id="deaddropdown">
+      <label>Activity:<select id="deaddropdown">
         <option value="" disabled selected>Select an activity</option>
-      </select>
+      </select></label>
       <label>Target Hours: <input type="number" id="deadlineHours"></label><br>
       <div class="buttons">
         <button class="cancel" onclick="closeAllPopups()">Cancel</button>

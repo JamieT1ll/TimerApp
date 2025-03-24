@@ -392,8 +392,19 @@ function createDeadline() {
   // Validate inputs
   if (deadlineDate && deadlineName && deadlineActivity && deadlineHours) {
     // Convert deadlineDate to Date object
-    var deadlineDateObj = new Date(deadlineDate);
+    if (deadlineHours <= 0) {
+      alert('Deadline hours must be a positive number.');
+      return;
+    }
 
+    var deadlineDateObj = new Date(deadlineDate);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to midnight to ensure accurate comparison
+    
+    if (deadlineDateObj < today) {
+      alert('You cannot set a deadline for a past date.');
+      return;
+    }
     // Add the deadline as an event to FullCalendar
     if (calendar) {
       var newDeadline = {
@@ -440,9 +451,13 @@ document.addEventListener('DOMContentLoaded', function() {
       calendar.unselect();
     },
     eventClick: function(arg) {
-      if (confirm('Are you sure you want to delete this event?')) {
-        arg.event.remove(); //do popup to show all event info, and then a Delete or cancel option!
-      }
+      const eventName = arg.event.title;
+      const eventStart = arg.event.start ? arg.event.start.toLocaleString() : 'No Start Time';
+      const eventEnd = arg.event.end ? arg.event.end.toLocaleString() : 'No End Time';
+    
+      const message = `Event: ${eventName}\nStart: ${eventStart}\nEnd: ${eventEnd}`;
+      
+      alert(message);
     },
     editable: true,
     dayMaxEvents: true, // allow "more" link when too many events
@@ -454,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 })
 
-function Todayclick() {
+function Todayclick(){
   calendar.today();
 };
 

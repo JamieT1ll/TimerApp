@@ -276,41 +276,9 @@ let currentDate = new Date();
         console.log(currentDate)
         loadActivities();
         updateDateDisplay();
-        showNotification('Hello!', 'This is a sample notification.');
+        
     }
 
-    requestNotificationPermission();
-    function requestNotificationPermission() {
-        if (Notification.permission === "default") {
-            Notification.requestPermission().then(permission => {
-                if (permission === "granted") {
-                    console.log("Notification permission granted!");
-                    showNotification('Hello!', 'This is a sample notification.');
-                } else if (permission === "denied") {
-                    console.log("Notifications are not permitted.");
-                }
-            });
-        } else {
-            console.log(`Notification permission is already ${Notification.permission}`);
-        }
-    }
-    
-
-    
-    function showNotification(title, body) {
-        if (Notification.permission === 'granted') {
-            const options = {
-                body: body,
-                icon: 'logo.png' // Use your app icon
-            };
-            new Notification(title, options);
-        } else if (Notification.permission === "denied") {
-            console.log("Notifications are not permitted.");
-        } else {
-            console.log("Notification permission is not determined.");
-        }
-    }
-    
 
     // Expose functions globally for button clicks
     window.incrementDate = incrementDate;
