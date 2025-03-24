@@ -2,23 +2,13 @@
    "name":"Work/Life",
    "short_name":"Work/Life time",
    "description":"A description of your PWA app",
-   "start_url":"./index.html",
+   "start_url":"https://jamiet1ll.github.io/TimerApp/index.html",
    "display":"standalone",
    "background_color":"#046363",
    "icons":[
       {
          "src":"https://jamiet1ll.github.io/TimerApp/icon.png",
          "sizes":"72x72",
-         "type":"image/png"
-      },
-      {
-         "src":"https://jamiet1ll.github.io/TimerApp/icon.png",
-         "sizes":"192x192",
-         "type":"image/png"
-      },
-      {
-         "src":"https://jamiet1ll.github.io/TimerApp/icon.png",
-         "sizes":"512x512",
          "type":"image/png"
       }
    ],
