@@ -4,6 +4,9 @@ var stopwatchInterval = null; // Stores the interval reference
 var currentActivity = ""; // Stores the selected activity
 var isPaused = false; // Tracks if the timer is paused
 var workMode = null;
+let stepCount = 0;
+let totalTime = 0; // Time in seconds
+const timePerStep = 1; // Example: Add 1 second per step
 
 var goalDB; // IndexedDB database
 var db, logDB, scheduleDB, deadlineDB;
@@ -318,6 +321,55 @@ function updateStopwatch() {
     document.getElementById("time").innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
 }
 
+if (window.DeviceMotionEvent) {
+    console.log('DeviceMotionEvent is supported');
+  } else {
+    console.error('DeviceMotionEvent not supported on this device');
+  }
+
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    DeviceMotionEvent.requestPermission()
+      .then((permissionState) => {
+        if (permissionState === 'granted') {
+          console.log('Permission granted');
+          startMotionTracking();
+        } else {
+          console.error('Permission denied');
+        }
+      })
+      .catch((error) => console.error('Permission request error:', error));
+  } else {
+    console.log('requestPermission not required or supported on this browser');
+    startMotionTracking(); // Directly start if not iOS or permission not needed
+  }
+  
+  function startMotionTracking() {
+    console.log('Starting motion tracking...');
+    
+    window.addEventListener('devicemotion', (event) => {
+      const { acceleration } = event;
+  
+      if (acceleration) {
+        const magnitude = Math.sqrt(
+          Math.pow(acceleration.x || 0, 2) +
+          Math.pow(acceleration.y || 0, 2) +
+          Math.pow(acceleration.z || 0, 2)
+        );
+  
+        // Detect a step using a simple threshold for magnitude
+        if (magnitude > 12) { // Adjust the threshold if necessary
+          stepCount++;
+          totalTime += timePerStep;
+          console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
+          document.getElementById("pawsbutton").innerText = stepCount;  // Reset the pause/resume button
+        }
+      }
+    });
+  
+    console.log('Motion tracking started');
+  }
+
+  
 function saveSessionToLogDB() {
     if (!currentActivity || !startTime) return;
     var endTime = new Date().getTime();

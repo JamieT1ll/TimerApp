@@ -81,11 +81,12 @@
     margin: 10px;
     font-size: 70px; /* Ensure same font size for arrows */
     padding: 10px; /* Add padding to make the arrows more clickable */
-  
+    color: black;
 }
 
 .arrow:hover{
     background-color:rgb(174, 174, 174);
+    
 }
 
 

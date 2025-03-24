@@ -6,6 +6,7 @@
     font-size: 16px;
     cursor: pointer;
     border: 25px solid rgb(69, 69, 69);
+    
 }
 
 #time {
@@ -106,6 +107,14 @@
   font-size: 70px;
   border-radius: 20px; /* Rounded edges */
   border: 12px solid rgb(188, 188, 188);
+  color: black;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.button{
+  color: black;
 }
 
 .pausebutton:hover {

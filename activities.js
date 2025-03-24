@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Insert the total time tally as the first (top) item
             const tallyDiv = document.createElement("div");
             tallyDiv.classList.add("activity-item", "tally-item"); // Add a specific class for styling
-            tallyDiv.innerHTML = "Loading..."; // Placeholder while tally is being calculated
+            tallyDiv.innerHTML = "No Activities Created!"; // Placeholder while tally is being calculated
             activityList.appendChild(tallyDiv); // Insert it at the top
     
             const activities = e.target.result;
@@ -231,12 +231,29 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     function StartActivity() {
-        const newActivity = prompt("Enter your activity:");
-        const mode = prompt("Enter your mode:");
-
-        if (newActivity &&	mode) {
-            addItem(newActivity,mode);
+        const newActivity = document.getElementById('goalname').value;
+        const modeElements = document.getElementsByName('Mode');
+        let selectedMode = "";
+    
+        // Get selected radio button value
+        for (let i = 0; i < modeElements.length; i++) {
+          if (modeElements[i].checked) {
+            selectedMode = modeElements[i].value;
+            break;
+          }
         }
+    
+        if (!newActivity) {
+          alert("Please enter a goal name.");
+          return;
+        }
+        if (!selectedMode) {
+          alert("Please select a mode.");
+          return;
+        }
+    
+        addItem(newActivity, selectedMode);
+        closeAllPopups();
     }
 
     updateDateDisplay();
