@@ -407,7 +407,7 @@ function requestPermission() {
         );
   
         // Adjust the threshold if necessary
-        if (magnitude > 50) {
+        if (magnitude > 40) {
             // Delay the execution of the code by 500ms
             setTimeout(() => {
               stepCount++;
