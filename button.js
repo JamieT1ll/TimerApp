@@ -409,8 +409,6 @@ function requestPermission() {
         // Adjust the threshold if necessary
         if (magnitude > 15) {
           stepCount++;
-          // Vibrate for 500ms
-            navigator.vibrate(500);
           totalTime += timePerStep;
           console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
           document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
