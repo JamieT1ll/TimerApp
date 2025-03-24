@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="frame.css">
+    <link rel="stylesheet" href="activities.css">
+    <title>Work/Life</title>
+</head>
+<body>
+    <div class="Title">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="cont">
+        <div class="acont">
+        
+        <div class="daterow">
+            <button class="arrow" onclick="decrementDate()">← </button>
+            <button><p id="date"></p></button>
+            <button class="arrow" onclick="incrementDate()">→</button>
+        </div>
+        <br>
+        <div class="goallist"></div>
+
+        <div id="goalpopup">
+                <span class="goaltext">
+                
+                  Enter your Goal:
+                  <input type="text" id="goalname" name="goalname">
+                  <br>
+                  For Activity: 
+                  <select id="activityDropdown">
+                    <option value="" disabled selected>Select an activity</option>
+                 </select>
+                 <br>
+                    Frequency? <br>
+                    <input type="radio" id="Daily" name="Frequency" value="Daily">
+                    <label for="Daily">Daily</label><br>
+                    
+                    <input type="radio" id="Weekly" name="Frequency" value="Weekly">
+                    <label for="Weekly">Weekly</label><br>
+                    
+                    <input type="radio" id="Yearly" name="Frequency" value="Yearly">
+                    <label for="Yearly">Yearly</label>
+                    <br>
+
+                    How many Hours?
+                    <input type="text" id="hours" name="hours"><br><br>
+
+                    <div class="buttons">
+                    <button class="cancel" onclick="closeAllPopups()">Cancel</button>
+                    <button class="confirm" onclick="startgoals()">Ok</button>
+                  </div>
+                </span>
+        </div>
+
+    
+        <div class="buttonrow">
+        <a href="activities.html"><button>Activities</button></a>
+
+        <button onclick="revealpopup()">Create</button>
+        </div>
+
+        </div>
+   
+
+    <div class="button-container">
+        <a href="activities.html"><button class="button-main"><img src="./images/Analytics.png"></button></a>
+        <a href="home.html"><button class="button"><img src="./images/Timer.png"></button></a>
+        <a href="calender.html"><button class="button"><img src="./images/Calender.png"></a></button>
+    </div>
+</body>
+<script src="goals.js"></script>
+</html>

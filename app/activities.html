@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="frame.css">
+    <link rel="stylesheet" href="activities.css">
+
+    <title>Work/Life</title>
+</head>
+<body>
+    <div class="Title">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="cont">
+        <div class="acont">
+        <div class="daterow">
+            <button class="arrow" onclick="decrementDate()">← </button>
+            <button><p id="date"></p></button>
+            <button class="arrow" onclick="incrementDate()">→</button>
+        </div>
+        <br>
+
+        <div class="activitylist">
+
+        </div>
+        <div class="buttonrow">
+        <a href="goals.html"><button>Goals</button></a>
+        <button onclick="revealpopup()">Create</button>
+        </div>
+
+        <div id="activepopup">
+            <span class="goaltext">
+            
+              Enter your Goal:
+              <input type="text" id="goalname" name="goalname">
+              <br>
+
+                What mode? <br>
+                <input type="radio" id="Work" name="Mode" value="Work">
+                <label for="Work">Work</label><br>
+                
+                <input type="radio" id="Life" name="Mode" value="Life">
+                <label for="Life">Life</label><br>
+            
+
+                <div class="buttons">
+                <button class="cancel" onclick="closeAllPopups()">Cancel</button>
+                <button class="confirm" onclick="StartActivity()">Ok</button>
+              </div>
+            </span>
+    </div>
+    
+
+    </div>
+
+    </div>
+
+    <div class="button-container">
+        <a href="activities.html"><button class="button-main"><img src="./images/Analytics.png"></button></a>
+        <a href="home.html"><button class="button"><img src="./images/Timer.png"></button></a>
+        <a href="calender.html"><button class="button"><img src="./images/Calender.png"></a></button>
+    </div>
+
+    <script src="activities.js"></script>
+</body>
+</html>

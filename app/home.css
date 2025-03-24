@@ -1,0 +1,192 @@
+.workbutton {
+    width: 70%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: rgb(26, 255, 5);
+    font-size: 16px;
+    cursor: pointer;
+    border: 25px solid rgb(69, 69, 69);
+}
+
+#time {
+  font-size: 70px; /* Adjust the size of the timer text */
+  font-weight: bold;
+  color: white;
+}
+
+#myActivity {
+  font-size: 60px; /* Adjust the size of the timer text */
+  font-weight: bold;
+  color: white;
+}
+
+.lifebutton {
+    width: 70%;
+    height: 500px;
+    border-radius: 50%;
+    background-color: rgb(255, 22, 5);
+    font-size: 16px;
+    cursor: pointer;
+    border: 20px solid rgb(69, 69, 69);
+}
+  
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 600px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 24px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%; /* Moves it slightly above the button */
+    transform: translateX(-50%);
+    font-size: 50px;
+    border-radius: 20px; /* Rounded edges */
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+#Recommended{
+   color:black;
+    background: white;
+    width: 70%px;
+    flex-grow: 1;  /* Makes the activity list grow and fill available space */
+    min-height: 70px; /* Ensures the list has a minimum height */
+    overflow-y: auto; /* Enables scrolling if the content overflows */
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px; /* Provides spacing between the list and the button row */
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+.acitivty {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+#activityDropdown{
+  width: 400px;
+  height: 110px;
+  font-size: 50px;
+  margin: 20px;
+}
+
+.popup-buttons button
+{
+  width: 170px;;
+  height: 100px;
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.popup-buttons button:hover {
+  background-color: #034f4f;
+}
+
+.pausebutton {
+  width: 250px;
+  margin-left: 40px;
+  margin-right: 40px;
+  aspect-ratio: 4 / 2;
+  font-size: 70px;
+  border-radius: 20px; /* Rounded edges */
+  border: 12px solid rgb(188, 188, 188);
+}
+
+.pausebutton:hover {
+  background-color: rgb(174, 174, 174);
+}
+
+
+/* The actual popup (appears on top) */
+.acitivty .acitivtytext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%; /* Moves it slightly above the button */
+    transform: translateX(-112%);
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+
+  #schedulealert {
+    width: 50%;
+    height: auto; /* Adjusts to fit content */
+    visibility: hidden; /* Hide the entire popup */
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-size: 38px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#schedulealert .eventtext {
+    margin: 0;
+    padding: 0;
+}
+
+#schedulealert .row-container {
+    display: flex; /* Arrange activity text and time in a row */
+    align-items: center; /* Vertically center the items */
+    justify-content: center; /* Center them horizontally */
+    margin-bottom: 10px; /* Space between activity and button */
+}
+
+#schedulealert p,
+#schedulealert #stime {
+    margin: 0;
+    padding: 0;
+}
+
+#schedulealert p {
+    margin-right: 10px; /* Space between activity text and time */
+}
+
+#schedulealert #stime {
+    margin-left: 10px; /* Space between time and the next element */
+}
+
+#schedulealert button {
+    margin-top: 10px; /* Space between the row (activity + time) and button */
+    padding: 5px 15px; /* Adjust button padding */
+    font-size: 38px;
+}
+
+
+  
+.acitivty .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }

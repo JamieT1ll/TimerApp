@@ -1,0 +1,243 @@
+.acont {
+    border-radius: 25px;
+    background: #b7b7b7;
+    padding-left: 30px; 
+    padding-right: 30px;
+    padding-bottom: 30px; /* Increase padding for more spacing inside */
+    width: 70%;   /* Increase width */
+    height: 50%;  /* Increase height */
+    display: flex;  /* Make it flexible for better content alignment */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.activitylist {
+    background: white;
+    width: 90%;
+    flex-grow: 1;  /* Makes the activity list grow and fill available space */
+    min-height: 100px; /* Ensures the list has a minimum height */
+    overflow-y: auto; /* Enables scrolling if the content overflows */
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 50px;
+    margin-bottom: 10px; /* Provides spacing between the list and the button row */
+}
+
+.activity-item {
+    margin-bottom: 30px;  /* Add space between entries */
+    padding-bottom: 20px; /* Padding below the item */
+    border-bottom: 10px solid #ccc; /* Add a line between items */
+}
+
+
+.delete{
+    font-size: 40px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.goals-item{
+    margin-bottom: 30px;  /* Add space between entries */
+    padding-bottom: 20px; /* Padding below the item */
+    border-bottom: 10px solid #ccc; /* Add a line between items */
+}
+
+
+.goallist {
+    background: white;
+    width: 90%;
+    flex-grow: 1;  /* Makes the activity list grow and fill available space */
+    min-height: 100px; /* Ensures the list has a minimum height */
+    overflow-y: auto; /* Enables scrolling if the content overflows */
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 50px;
+    margin-bottom: 10px; /* Provides spacing between the list and the button row */
+}
+
+.daterow {
+    margin-top: 10px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the buttons */
+    justify-content: center; /* Horizontally center the buttons */
+}
+
+.daterow:hover {
+    background-color:rgb(174, 174, 174);
+}
+
+#date {
+    margin-top: 10px;
+    font-size: 50px; /* Ensure same font size for date */
+    text-align: center; /* Ensure text is centered */
+}
+
+
+
+.arrow {
+    margin: 10px;
+    font-size: 70px; /* Ensure same font size for arrows */
+    padding: 10px; /* Add padding to make the arrows more clickable */
+  
+}
+
+.arrow:hover{
+    background-color:rgb(174, 174, 174);
+}
+
+
+.buttonrow {
+    margin: top 10px;
+    justify-content: space-between;
+    gap: 20px; 
+}
+
+.buttonrow button{
+    font-size: 70px;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    flex: 1;
+}
+
+.buttonrow button:hover{
+    background-color:rgb(174, 174, 174);
+}
+
+#activepopup {
+    visibility: hidden; /* Hide the entire popup */
+    position: fixed;
+    width:80%;
+    min-height:40%;
+    top: 50%;
+    left: 50%;
+    color:white;
+    font-size: 80px;
+    transform: translate(-50%, -50%);
+    background-color: #555;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;   
+    align-items: center;       
+    flex-direction: column;    
+    }
+
+    .goaltext
+    {
+        left:50%;
+        justify-content: center;   
+    align-items: center;       
+    flex-direction: column;    
+    }
+
+    input[type="text"] {
+        width: 80%;  /* Full width */
+        margin-left: 50px;
+        font-size: 80px;  /* Increases font size of text input */
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;  /* Adds space below the input */
+        justify-content: center;   
+    align-items: center;       
+    flex-direction: column;   
+
+    }
+    input[type="radio"] {
+        transform: scale(5.5);  /* Scales the radio button to make it bigger */
+        margin-right: 40px;  /* Adds space between radio button and label */
+        margin-left: 50px;
+        margin-bottom: 30px;
+        vertical-align: middle;  /* Aligns the radio button vertically with the label */
+    }
+    input[type="radio"] + label {
+        font-size: 100px;  /* Increases font size for label text */
+        font-weight: bold;
+        vertical-align: middle;  /* Aligns label vertically with radio button */
+    display: inline-block; 
+    }
+    
+    input[type="radio"] + label {
+        font-size: 100px;  /* Increases font size for label text */
+        font-weight: bold;
+        vertical-align: middle;  /* Aligns label vertically with radio button */
+    display: inline-block; 
+    }
+
+    .buttons{
+        bottom: 10%;
+        margin-top: 10px;
+        display: flex;
+    justify-content: center;   /* Centers buttons horizontally */
+    align-items: center;       /* Centers buttons vertically */
+    flex-direction: row;       /* Keeps buttons in a row, horizontally */     
+    }
+
+    #activityDropdown {
+        width: 80%;  /* Full width */
+        margin-left: 50px;                /* Makes the dropdown fill the container */
+        padding: 12px 16px;          /* Adds space inside the select box */
+        font-size: 50px;             /* Font size for the text */
+        border-radius: 8px;          /* Rounds the corners */
+        border: 1px solid #ccc;      /* Border color */
+        background-color: #f9f9f9;   /* Background color of the dropdown */
+        color: #333;                 /* Text color */
+        appearance: none;            /* Removes default styling in some browsers (optional) */
+        -webkit-appearance: none;    /* Safari and older webkit browsers */
+        -moz-appearance: none;       /* Firefox */
+    }
+    
+    /* Style the dropdown arrow */
+    #activityDropdown::-ms-expand {
+        display: none;               /* Removes the default dropdown arrow in IE */
+    }
+    
+    /* Optional: Style the selected option */
+    #activityDropdown option {
+        padding: 12px;               /* Adds padding to the options */
+        font-size: 16px;             /* Font size for the option text */
+        background-color: #fff;      /* Background color of options */
+        color: #333;                 /* Text color */
+    }
+    
+    /* Hover effect for options (optional) */
+    #activityDropdown option:hover {
+        background-color: #e0e0e0;   /* Change background color when hovering over an option */
+    }
+
+    .buttons button {
+        font-size: 70px;
+        padding: 10px 20px;        /* Adds space around button text */
+        margin: 10px;
+        border-radius: 20px;
+    }    
+
+    .buttons button:hover {
+    background-color:rgb(174, 174, 174);
+    }    
+
+    #goalpopup {
+        visibility: hidden; /* Hide the entire popup */
+        position: fixed;
+        width:80%;
+        min-height:40%;
+        top: 50%;
+        left: 50%;
+        color:white;
+        font-size: 80px;
+        transform: translate(-50%, -50%);
+        background-color: #555;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;   
+        align-items: center;       
+        flex-direction: column;    
+        }

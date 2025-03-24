@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link rel="stylesheet" href="frame.css">
+<script src='./assets/index.global.js'></script>
+<script src='calender.js'></script>
+
+
+<style>
+
+
+  /* Increase the size of the month, day, year in the header */
+.fc-toolbar h2 {
+    font-size: 48px !important; /* Adjust this size as needed */
+    text-align: center;
+}
+
+.eventcreate{
+  font-size:36px;
+  padding: 12px;
+  width: 130px;
+  height: 80px;
+  border-radius: 20px;
+  color:#fff;
+  background-color: #303c54;
+  margin-top: 20px;
+}
+
+.eventcreate:hover{
+  font-size:42px;
+  width: 200px;
+  height:100px;
+  border-radius: 20px;
+  color:#fff;
+  background-color: #1a252f;
+}
+
+#my-today-button{
+  font-size:36px;
+  padding: 12px;
+  width: 130px;
+  height: 80px;
+  border-radius: 20px;
+  color:#fff;
+  background-color: #303c54;
+  margin-top: 20px;
+}
+
+#my-today-button:hover{
+  font-size:42px;
+  width: 200px;
+  height:100px;
+  border-radius: 20px;
+  color:#fff;
+  background-color: #1a252f;
+}
+
+.fc-button {
+    font-size: 36px !important; /* Make text inside buttons larger */
+    padding: 12px!important; /* Increase padding to make buttons bigger */
+    height: 80px !important; /* Increase the height of buttons */
+    min-width: 100px !important; /* Set a minimum width for buttons */
+}
+
+/* Increase the size of the day names (Sun, Mon, Tue, etc.) */
+.fc-day-header {
+    font-size: 300px !important; /* Adjust this size as needed */
+}
+
+/* Increase the size of the event titles */
+.fc-event-title {
+    font-size: 20px !important; /* Adjust this size as needed */
+    white-space: normal !important; /* Allow the event name to wrap to the next line */
+    overflow: hidden; /* Hide overflow if the event name is too long */
+    text-overflow: ellipsis; /* Add ellipsis if the text is too long */
+}
+
+/* Increase the size of the day numbers (1, 2, 3, etc.) */
+.fc-day-number {
+    font-size: 40px !important; /* Adjust this size as needed */
+}
+
+/* Increase the size of the event description */
+.fc-event-time {
+    font-size: 14px !important; /* Adjust this size as needed */
+}
+
+  #eventpopup {
+  visibility: hidden; /* Hide the entire popup */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  }
+
+  #schedulepopup {
+  visibility: hidden; /* Hide the entire popup */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  }
+
+  #deadlinepopup {
+  visibility: hidden; /* Hide the entire popup */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;}
+
+  .schedule-date{
+    background-color: red !important;  /* Red background for important dates */
+    color: white !important;           /* White text for readability */
+    font-weight: bold;                 /* Bold text */
+    border: 2px solid #FF4500;
+  }
+
+  .deadline-date{
+    background-color: red !important;  /* Red background for important dates */
+    color: white !important;           /* White text for readability */
+    font-weight: bold;                 /* Bold text */
+    border: 2px solid #FF4500;
+  }
+
+
+.popup-content {
+  text-align: center;
+}
+
+
+
+button#closePopup {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+  .schedule{
+    visibility: hidden;
+  }
+/* Base Styles for Calendar */
+.calcontainer {
+  top:1px;
+    width: 90%; /* Adjust the width for larger screens */
+    margin: 0 auto; /* Center the calendar */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 60%;
+}
+
+/* Styling for Calendar Date and Text */
+
+
+/* Optional: If using a grid layout for calendar days */
+
+</style>
+
+</head>
+<body>
+  <div class="Title">
+    <img src="logo.png" alt="Logo">
+  </div>
+
+  <div class="cont">
+
+  <div class="calcontainer">
+  <div id='calendar'></div>
+  <div class="buttons">
+    <button class="eventcreate" onclick="openevent()">Edit </button>
+    <button id="my-today-button" onclick="Todayclick()">Today</button>
+  </div>
+  </div>
+  <div id="eventpopup">
+    <span class="eventtext">
+    
+      Would you like to create a **Schedule** or a **Deadline**?  
+
+      <div class="buttons">
+        <button class="cancel" onclick="closeAllPopups()">Cancel</button>
+        <button class="confirm" onclick="openSchedulePopup()">Schedule</button>
+        <button class="confirm" onclick="openDeadlinePopup()">Deadline</button>
+      </div>
+    </span>
+  </div>
+
+ 
+  <div id="schedulepopup">
+    <span class="eventtext">
+    
+      <p>What would your schedule like to be?</p>
+      <label>Date: <input type="date" id="scheduleDate"></label><br>
+      <select id="scheddropdown">
+        <option value="" disabled selected>Select an activity</option>
+      </select>
+      <label>Start: <input type="time" id="scheduleStart"></label><br>
+      <label>End: <input type="time" id="scheduleEnd"></label><br>
+      <div class="buttons">
+        <button class="cancel" onclick="closeAllPopups()">Cancel</button>
+        <button onclick="createScheduleEvent()">OK</button>
+      </div>
+    </span>
+  </div>
+
+  <div id="deadlinepopup">
+  <span class="eventtext">
+
+    <p>What would you like your deadline to be?</p>
+      <label>Date: <input type="date" id="deadlineDate"></label><br>
+      <label>Name: <input type="text" id="deadlineName"></label><br>
+      <select id="deaddropdown">
+        <option value="" disabled selected>Select an activity</option>
+      </select>
+      <label>Target Hours: <input type="number" id="deadlineHours"></label><br>
+      <div class="buttons">
+        <button class="cancel" onclick="closeAllPopups()">Cancel</button>
+        <button class="confirm" onclick="createDeadline()">OK</button>
+      </div>
+    </span>
+  </div>
+  
+
+ 
+  </div>
+
+ 
+
+  <div class="button-container">
+    <a href="activities.html"><button class="button"><img src="./images/Analytics.png"></button></a>
+    <a href="home.html"><button class="button"><img src="./images/Timer.png"></button></a>
+    <a href="calender.html"><button class="button-main"><img src="./images/Calender.png"></a></button>
+</div>
+
+</body>
+</html>
