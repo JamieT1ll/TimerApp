@@ -321,34 +321,43 @@ function updateStopwatch() {
     document.getElementById("time").innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
 }
 
-if (window.DeviceMotionEvent) {
-    console.log('DeviceMotionEvent is supported');
-  } else {
-    console.error('DeviceMotionEvent not supported on this device');
-  }
 
-if (typeof DeviceMotionEvent.requestPermission === 'function') {
-    DeviceMotionEvent.requestPermission()
-      .then((permissionState) => {
-        if (permissionState === 'granted') {
-          console.log('Permission granted');
-          startMotionTracking();
-          document.getElementById("myActivity").innerText = "permission granted";
-        } else {
-          console.error('Permission denied');
-          document.getElementById("myActivity").innerText = "permission denied";
-        }
-      })
-      .catch((error) => console.error('Permission request error:', error));
-  } else {
-    console.log('requestPermission not required or supported on this browser');
-    document.getElementById("myActivity").innerText = "permission unsupport";
-    startMotionTracking(); // Directly start if not iOS or permission not needed
+function requestPermission() {
+    if (window.DeviceMotionEvent) {
+      console.log('DeviceMotionEvent is supported');
+    } else {
+      console.error('DeviceMotionEvent not supported on this device');
+      return;
+    }
+  
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then((permissionState) => {
+          if (permissionState === 'granted') {
+            console.log('Permission granted');
+            startMotionTracking();
+            document.getElementById("myActivity").innerText = "Permission granted ✅";
+          } else {
+            console.error('Permission denied');
+            document.getElementById("myActivity").innerText = "Permission denied ❌";
+          }
+        })
+        .catch((error) => {
+          console.error('Permission request error:', error);
+          document.getElementById("myActivity").innerText = "Permission Error ⚠️";
+          alert("perm error");
+        });
+    } else {
+      console.log('requestPermission not required or supported on this browser');
+      alert("epoc fail.");
+
+      startMotionTracking();
+    }
   }
   
   function startMotionTracking() {
     console.log('Starting motion tracking...');
-    
+  
     window.addEventListener('devicemotion', (event) => {
       const { acceleration } = event;
   
@@ -359,12 +368,12 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
           Math.pow(acceleration.z || 0, 2)
         );
   
-        // Detect a step using a simple threshold for magnitude
-        if (magnitude > 12) { // Adjust the threshold if necessary
+        // Adjust the threshold if necessary
+        if (magnitude > 12) {
           stepCount++;
           totalTime += timePerStep;
           console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-          document.getElementById("pawsbutton").innerText = stepCount;  // Reset the pause/resume button
+          document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
         }
       }
     });
@@ -581,6 +590,7 @@ function recommendActivities() {
 
 
 
+requestPermission();
 
 
 function Closepopup() {
