@@ -408,12 +408,18 @@ function requestPermission() {
   
         // Adjust the threshold if necessary
         if (magnitude > 50) {
-            // Delay the execution of the code by 500ms
-            setTimeout(() => {
-              stepCount++;
-              console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-              document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
-            }, 700); // 500 milliseconds = 0.5 seconds
+            let steptime = Date.now();
+  
+            // Only process step if the time difference from the last step exceeds the debounceDelay
+            if (steptime - lastStepTime > debounceDelay) {
+              // Delay the execution of the code by debounceDelay ms
+                setTimeout(() => {
+                stepCount++;
+                lastStepTime = Date.now(); // Update last step time
+                console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
+                document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
+              }, debounceDelay);
+            }
           }
           
       }
