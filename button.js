@@ -395,7 +395,7 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 40) {
+        if (magnitude > 30) {
            
             setTimeout(() => {
               stepCount++;
@@ -604,16 +604,6 @@ function recommendActivities() {
         })
         .catch(error => console.error(error));
 }
-
-
-
-
-
-
-
-
-
-
 
 
 function Closepopup() {
