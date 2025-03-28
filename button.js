@@ -400,8 +400,6 @@ function requestPermission() {
            
             setTimeout(() => {
               stepCount++;
-              totalTime += timePerStep;
-              console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
             }, 500); 
           }
