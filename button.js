@@ -404,7 +404,7 @@ function requestPermission() {
               stepCount++;
               totalTime += timePerStep;
       
-              document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
+              document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
               console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
                     pausestep = false;
             }, 500);
