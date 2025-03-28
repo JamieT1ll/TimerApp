@@ -395,7 +395,7 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 50) {
+        if (magnitude > 30) {
             alert('Please fill in all fields.');
             setTimeout(() => {
               stepCount++;
