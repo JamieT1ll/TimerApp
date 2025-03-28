@@ -11,12 +11,12 @@ body, html {
     left: 0;
     width: 100%;
     text-align: center;
-    padding: 10px 0; /* Add padding for spacing */
+    padding: 10px 0;
 }
 
 .Title img {
-    max-width: 40vh; /* Adjust the width as needed */
-    height: auto; /* Keeps the aspect ratio */
+    max-width: 40vh;
+    height: auto; 
 }
 
 .cont {
@@ -26,8 +26,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 20px; /* Add space between buttons */
+    flex-direction: column; 
+    gap: 20px; 
 }
 
 .button-container {
@@ -69,9 +69,9 @@ body, html {
 
 .button img,
 .button-main img {
-    max-width: 80%;  /* Makes the image scale inside the button */
-    max-height: 80%; /* Ensures the image fits within the button */
-    object-fit: contain; /* Ensures the image maintains its aspect ratio */
+    max-width: 80%; 
+    max-height: 80%; 
+    object-fit: contain; 
 }
 
 .button:hover {

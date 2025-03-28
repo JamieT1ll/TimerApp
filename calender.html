@@ -10,11 +10,14 @@
 
 <style>
 
-
-  /* Increase the size of the month, day, year in the header */
 .fc-toolbar h2 {
-    font-size: 48px !important; /* Adjust this size as needed */
+    font-size: 48px !important; 
     text-align: center;
+}
+
+.fc-daygrid-more-link
+{
+  font-size:30px !important;
 }
 
 .eventcreate{
@@ -56,7 +59,7 @@
 }
 
 .fc-timegrid-slot-label {
-  font-size: 40px; /* Adjust the size */
+  font-size: 40px;
 }
 
 #my-today-button{
@@ -83,32 +86,29 @@
   color: black;
 }
 .fc-button {
-    font-size: 36px !important; /* Make text inside buttons larger */
-    padding: 12px!important; /* Increase padding to make buttons bigger */
-    height: 80px !important; /* Increase the height of buttons */
-    min-width: 100px !important; /* Set a minimum width for buttons */
+    font-size: 36px !important; 
+    padding: 12px!important; 
+    height: 80px !important; 
+    min-width: 100px !important; 
 }
 
-/* Increase the size of the day names (Sun, Mon, Tue, etc.) */
 .fc-day-header {
-    font-size: 300px !important; /* Adjust this size as needed */
+    font-size: 300px !important; 
 }
 
-/* Increase the size of the event titles */
 .fc-event-title {
-    font-size: 30px !important; /* Adjust this size as needed */
-    white-space: normal !important; /* Allow the event name to wrap to the next line */
-    overflow: hidden; /* Hide overflow if the event name is too long */
-    text-overflow: ellipsis; /* Add ellipsis if the text is too long */
+    font-size: 30px !important; 
+    white-space: normal !important; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
-/* Increase the size of the day numbers (1, 2, 3, etc.) */
 .fc-day-number {
-    font-size: 40px !important; /* Adjust this size as needed */
+    font-size: 40px !important; 
 }
 
   #eventpopup  {
-  visibility: hidden; /* Hide the entire popup */
+  visibility: hidden; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -121,7 +121,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   font-size: 50px;
-    border-radius: 20px; /* Rounded edges */
+    border-radius: 20px; 
   }
   .popupbuttons button
 {
@@ -133,7 +133,7 @@
   margin-top: 30px
 }
   #schedulepopup {
-    visibility: hidden; /* Hide the entire popup */
+    visibility: hidden; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -146,11 +146,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   font-size: 50px;
-    border-radius: 20px; /* Rounded edges */
+    border-radius: 20px; 
   }
 
   #deadlinepopup {
-    visibility: hidden; /* Hide the entire popup */
+    visibility: hidden; 
   position: fixed;
   top: 50%;
   left: 50%;
@@ -163,20 +163,20 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
   font-size: 50px;
-    border-radius: 20px; /* Rounded edges */
+    border-radius: 20px; 
   }
 
   .schedule-date{
-    background-color: red !important;  /* Red background for important dates */
-    color: white !important;           /* White text for readability */
-    font-weight: bold;                 /* Bold text */
+    background-color: red !important;  
+    color: white !important;        
+    font-weight: bold;   
     border: 2px solid #FF4500;
   }
 
   .deadline-date{
-    background-color: red !important;  /* Red background for important dates */
-    color: white !important;           /* White text for readability */
-    font-weight: bold;                 /* Bold text */
+    background-color: red !important;  
+    color: white !important;   
+    font-weight: bold;                
     border: 2px solid #FF4500;
   }
 
@@ -188,11 +188,11 @@
   .schedule{
     visibility: hidden;
   }
-/* Base Styles for Calendar */
-.calcontainer {
+
+  .calcontainer {
   top:1px;
-    width: 90%; /* Adjust the width for larger screens */
-    margin: 0 auto; /* Center the calendar */
+    width: 90%; 
+    margin: 0 auto; 
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -200,12 +200,11 @@
     height: 60%;
 }
 input[type="text"] {
-        width: 80%;  /* Full width */
-        
-        font-size: 80px;  /* Increases font size of text input */
+        width: 80%; 
+        font-size: 80px; 
         border-radius: 8px;
         border: 1px solid #ccc;
-        margin-bottom: 15px;  /* Adds space below the input */
+        margin-bottom: 15px;  
         justify-content: center;   
     align-items: center;       
     flex-direction: column;   
@@ -232,17 +231,15 @@ input[type="text"] {
   color:black
     }
     
-    /* Style the dropdown arrow */
     #activityDropdown::-ms-expand {
-        display: none;               /* Removes the default dropdown arrow in IE */
+        display: none;          
     }
     
-    /* Optional: Style the selected option */
     #activityDropdown option {
-        padding: 12px;               /* Adds padding to the options */
-        font-size: 16px;             /* Font size for the option text */
-        background-color: #fff;      /* Background color of options */
-        color: #333;                 /* Text color */
+        padding: 12px;               
+        font-size: 16px;             
+        background-color: #fff;  
+        color: #333;        
     }
 
     input[type="date"] {
@@ -269,18 +266,10 @@ input[type="number"] {
   font-size: 2rem;
   color:black
 }
-
-
-    
-    /* Hover effect for options (optional) */
     #activityDropdown option:hover {
-        background-color: #e0e0e0;   /* Change background color when hovering over an option */
+        background-color: #e0e0e0;   
     }
 
-/* Styling for Calendar Date and Text */
-
-
-/* Optional: If using a grid layout for calendar days */
 
 </style>
 

@@ -14,8 +14,6 @@ function initDB() {
     requestlog.onsuccess = function (e) {
         logDB = e.target.result;
         console.log("ActivityLogDB opened successfully");
-
-        // ✅ Load activity sessions after DB is ready
         loadActivitySessions();
     };
 
@@ -37,7 +35,7 @@ function initDB() {
       scheduleDB = e.target.result;
         console.log("scheduleDB opened successfully");
         loadScheduleSessions();
-        // ✅ Load activity sessions after DB is ready
+
     };
 
     requestlog.onerror = function (e) {
@@ -57,7 +55,7 @@ function initDB() {
         deadlineDB = e.target.result;
         console.log("ActivityLogDB opened successfully");
         loadDeadlineSessions();
-        // ✅ Load activity sessions after DB is ready
+  
     };
 
     requestlog.onerror = function (e) {
@@ -77,7 +75,7 @@ function initDB() {
     request.onsuccess = function (e) {
         activedb = e.target.result;
         console.log("Database opened successfully");
-        loadActivities(); // Load activities after DB is ready
+        loadActivities();
     };
 
     request.onerror = function (e) {
@@ -96,11 +94,10 @@ function loadActivities() {
       var scheddropdown = document.getElementById("scheddropdown");
       var deaddropdown = document.getElementById("deaddropdown");
 
-      // Reset options
       scheddropdown.innerHTML = '<option value="" disabled selected>Select an activity</option>';
       deaddropdown.innerHTML = '<option value="" disabled selected>Select an activity</option>';
       
-      // Populate dropdowns with activities
+      //Populate dropdowns with activities
       var activities = request.result;
       activities.forEach(activity => {
           var option1 = document.createElement("option");
@@ -142,7 +139,7 @@ function loadActivitySessions() {
                 start: new Date(session.startTime),
                 end: new Date(session.endTime),
                 allDay: false,
-                backgroundColor: 'green' // Customize color if needed
+                backgroundColor: 'green' 
             }));
 
             calendar.addEventSource(events);
@@ -283,7 +280,6 @@ function addScheduleItem(scheduleActivity, startDate, endDate){
   const tx = scheduleDB.transaction("schedules", "readwrite");
   const store = tx.objectStore("schedules");
 
-  // Create the goal object to add
   const schedules = {
     scheduleActivity: scheduleActivity,
     startDate: startDate, 
@@ -304,7 +300,6 @@ function addDeadlineItem(deadlineDate,deadlineName,deadlineActivity,deadlineHour
       console.error("Database not initialized yet!");
       return;
   }
-
   if (!deadlineDB.objectStoreNames.contains("deadlines")) {
       console.error("Object store 'deadlines' not found2.");
       return;
@@ -312,8 +307,6 @@ function addDeadlineItem(deadlineDate,deadlineName,deadlineActivity,deadlineHour
 
   const tx = deadlineDB.transaction("deadlines", "readwrite");
   const store = tx.objectStore("deadlines");
-
-  // Create the deadline object to add
   const deadlines = {
     deadlineName: deadlineName,
     deadlineDate: deadlineDate,
@@ -327,7 +320,6 @@ function addDeadlineItem(deadlineDate,deadlineName,deadlineActivity,deadlineHour
   addRequest.onsuccess = () => {
       console.log("Schedule added successfully!");
   };
-
   addRequest.onerror = (event) => console.error("Error adding goal:", event.target.error);
 }
 
@@ -338,12 +330,12 @@ function closeAllPopups() {
 };
 
 function openSchedulePopup() {
-  closeAllPopups(); // Close all other popups
+  closeAllPopups(); 
   document.getElementById("schedulepopup").style.visibility = "visible"; // Show schedule popup
 }
 
 function openDeadlinePopup() {
-  closeAllPopups(); // Close all other popups
+  closeAllPopups(); 
   document.getElementById("deadlinepopup").style.visibility = "visible"; // Show deadline popup
 };
 
@@ -356,7 +348,6 @@ function createScheduleEvent() {
     var scheduleActivity = document.getElementById('scheddropdown').value;
     var scheduleStart = document.getElementById('scheduleStart').value;
     var scheduleEnd = document.getElementById('scheduleEnd').value;
-  
     if (scheduleDate && scheduleActivity && scheduleStart && scheduleEnd) {
       var startDate = new Date(scheduleDate + 'T' + scheduleStart);
       var endDate = new Date(scheduleDate + 'T' + scheduleEnd);
@@ -369,10 +360,10 @@ function createScheduleEvent() {
           allDay: false,
           backgroundColor: 'blue'
         };
-  
-        calendar.addEvent(newEvent); // ✅ Corrected
+        calendar.addEvent(newEvent); 
         addScheduleItem(scheduleActivity, startDate, endDate);
   
+
         closeAllPopups();
       } else {
         alert('Calendar is not initialized yet!');
@@ -383,15 +374,13 @@ function createScheduleEvent() {
   }
 
 function createDeadline() {
-    // Get values from the form inputs
   var deadlineDate = document.getElementById('deadlineDate').value;
   var deadlineName = document.getElementById('deadlineName').value;
   var deadlineActivity = document.getElementById('deaddropdown').value;
   var deadlineHours = document.getElementById('deadlineHours').value;
 
-  // Validate inputs
+  //Validate for inputs
   if (deadlineDate && deadlineName && deadlineActivity && deadlineHours) {
-    // Convert deadlineDate to Date object
     if (deadlineHours <= 0) {
       alert('Deadline hours must be a positive number.');
       return;
@@ -399,25 +388,22 @@ function createDeadline() {
 
     var deadlineDateObj = new Date(deadlineDate);
     const today = new Date();
-    today.setHours(0, 0, 0, 0); // Set to midnight to ensure accurate comparison
-    
+    today.setHours(0, 0, 0, 0); // Set to midnight for calculations
+
     if (deadlineDateObj < today) {
       alert('You cannot set a deadline for a past date.');
       return;
     }
-    // Add the deadline as an event to FullCalendar
     if (calendar) {
       var newDeadline = {
         title: `${deadlineName}: ${deadlineActivity} - ${deadlineHours} hr remain`,
         start: deadlineDateObj,
-        allDay: true, // Deadlines are typically all-day events
+        allDay: true, 
         backgroundColor: 'red'
       };
 
-      // Add the deadline event to the calendar
       calendar.addEventSource([newDeadline]);
       addDeadlineItem(deadlineDate,deadlineName,deadlineActivity,deadlineHours);
-      // Close the deadline popup
       closeAllPopups();
     } else {
       alert('Calendar is not initialized yet!');
@@ -428,6 +414,7 @@ function createDeadline() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  //this segment is from Fullcalender.js and is monstly unchanged
   var calendarEl = document.getElementById('calendar');
 
   calendar = new FullCalendar.Calendar(calendarEl, {
@@ -440,8 +427,7 @@ document.addEventListener('DOMContentLoaded', function() {
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
-    initialDate: '2025-01-12',
-    navLinks: true, // can click day/week names to navigate views
+    navLinks: true, 
     selectable: false,
     selectMirror: true,
     select: function(arg) {
@@ -458,15 +444,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const message = `Event: ${eventName}\nStart: ${eventStart}\nEnd: ${eventEnd}`;
       
       alert(message);
+      if (confirm('Are you sure you want to delete this event?')) {
+        arg.event.remove()
+
+
+      }
     },
     editable: true,
-    dayMaxEvents: true, // allow "more" link when too many events
+    dayMaxEvents: true, //allows the "more" link when too many events
     
   });
 
   // Initialize the calendar
   calendar.render();
-  
 })
 
 function Todayclick(){

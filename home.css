@@ -10,13 +10,13 @@
 }
 
 #time {
-  font-size: 70px; /* Adjust the size of the timer text */
+  font-size: 70px; 
   font-weight: bold;
   color: white;
 }
 
 #myActivity {
-  font-size: 60px; /* Adjust the size of the timer text */
+  font-size: 60px; 
   font-weight: bold;
   color: white;
 }
@@ -31,14 +31,12 @@
     border: 20px solid rgb(69, 69, 69);
 }
   
-/* Popup container */
 .popup {
     position: relative;
     display: inline-block;
     cursor: pointer;
   }
   
-/* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
     width: 600px;
@@ -49,23 +47,22 @@
     padding: 24px;
     position: absolute;
     z-index: 1;
-    bottom: 110%; /* Moves it slightly above the button */
+    bottom: 110%; 
     transform: translateX(-50%);
     font-size: 50px;
-    border-radius: 20px; /* Rounded edges */
+    border-radius: 20px;
   }
   
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
 #Recommended{
    color:black;
     background: white;
     width: 70%px;
-    flex-grow: 1;  /* Makes the activity list grow and fill available space */
-    min-height: 70px; /* Ensures the list has a minimum height */
-    overflow-y: auto; /* Enables scrolling if the content overflows */
+    flex-grow: 1;  
+    min-height: 70px; 
+    overflow-y: auto; 
     border-radius: 10px;
     padding: 10px;
-    margin-bottom: 10px; /* Provides spacing between the list and the button row */
+    margin-bottom: 10px; 
 }
 
 .popup .show {
@@ -107,7 +104,7 @@
   margin-right: 40px;
   aspect-ratio: 4 / 2;
   font-size: 50px;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 20px; 
   border: 12px solid rgb(188, 188, 188);
   color: black;
   justify-content: center;
@@ -117,9 +114,9 @@
 
 .button{
   color: black;
-  justify-content: center;   /* Centers buttons horizontally */
-  align-items: center;       /* Centers buttons vertically */
-  flex-direction: row;       /* Keeps buttons in a row, horizontally */ 
+  justify-content: center; 
+  align-items: center;       
+  flex-direction: row;        
   text-align: center;
 }
 
@@ -127,8 +124,6 @@
   background-color: rgb(174, 174, 174);
 }
 
-
-/* The actual popup (appears on top) */
 .acitivty .acitivtytext {
     visibility: hidden;
     width: 160px;
@@ -139,16 +134,14 @@
     padding: 8px 0;
     position: absolute;
     z-index: 1;
-    bottom: 110%; /* Moves it slightly above the button */
+    bottom: 110%; 
     transform: translateX(-112%);
   }
   
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-
   #schedulealert {
     width: 50%;
-    height: auto; /* Adjusts to fit content */
-    visibility: hidden; /* Hide the entire popup */
+    height: auto; 
+    visibility: hidden; 
     position: fixed;
     top: 20%;
     left: 50%;
@@ -159,7 +152,7 @@
     font-size: 38px;
     z-index: 1000;
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
@@ -172,8 +165,8 @@
 }
 #stepcount {
   width: 50%;
-  height: auto; /* Adjusts to fit content */
-  visibility: hidden; /* Hide the entire popup */
+  height: auto; 
+  visibility: hidden; 
   position: fixed;
   top: 20%;
   left: 50%;
@@ -184,7 +177,7 @@
   font-size: 38px;
   z-index: 1000;
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column; 
   justify-content: flex-start;
   align-items: center;
   text-align: center;
@@ -202,10 +195,10 @@
 }
 
 #schedulealert .row-container {
-    display: flex; /* Arrange activity text and time in a row */
-    align-items: center; /* Vertically center the items */
-    justify-content: center; /* Center them horizontally */
-    margin-bottom: 10px; /* Space between activity and button */
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px;
 }
 
 #schedulealert p,
@@ -215,16 +208,16 @@
 }
 
 #schedulealert p {
-    margin-right: 10px; /* Space between activity text and time */
+    margin-right: 10px; 
 }
 
 #schedulealert #stime {
-    margin-left: 10px; /* Space between time and the next element */
+    margin-left: 10px; 
 }
 
 #schedulealert button {
-    margin-top: 10px; /* Space between the row (activity + time) and button */
-    padding: 5px 15px; /* Adjust button padding */
+    margin-top: 10px; 
+    padding: 5px 15px;
     font-size: 38px;
 }
 
