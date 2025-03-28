@@ -396,13 +396,13 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 10 && !pausestep) {
+        if (magnitude > 8 && !pausestep) {
             stepCount++;
             pausestep = true;      
             setTimeout(() => {
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
                 pausestep = false;
-            }, 300);
+            }, 500);
         }
         
           
