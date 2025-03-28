@@ -396,25 +396,17 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 30 && !isTracking) {
-            // Increment stepCount immediately
+        if (magnitude > 30 && !pausestep) {
             stepCount++;
             pausestep = true;
-            
-            // Set a timeout of 500ms to register the step after the detected movement
+        
             setTimeout(() => {
-              // Increment step count and total time after the timeout
               stepCount++;
               totalTime += timePerStep;
       
-              // Update the displayed values
               document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
-              
-              // Log the current step count and total time
               console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-      
-              // Reset the tracking flag after 500ms, allowing the next step to be detected
-              pausestep = false;
+                    pausestep = false;
             }, 500);
         }
         
