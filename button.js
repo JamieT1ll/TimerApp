@@ -398,16 +398,10 @@ function requestPermission() {
         
         if (magnitude > 30 && !pausestep) {
             stepCount++;
-            pausestep = true;
-            alert('movin.')
-        
+            pausestep = true;      
             setTimeout(() => {
-              stepCount++;
-              totalTime += timePerStep;
-      
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
-              console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
-                    pausestep = false;
+                pausestep = false;
             }, 500);
         }
         
