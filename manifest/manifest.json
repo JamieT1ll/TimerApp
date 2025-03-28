@@ -2,7 +2,7 @@
     "name": "Work/Life",
     "short_name": "Work/Life time",
     "description": "A description of your PWA app",
-    "start_url": "./login.html",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#046363",
     "icons": [
