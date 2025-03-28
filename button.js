@@ -396,11 +396,19 @@ function requestPermission() {
   
         
         if (magnitude > 30) {
+            // Increment stepCount immediately
+            stepCount++;
+        
+            // Update the step count in the DOM
+            document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
+        
+            // Set a timeout to perform additional actions after 500ms
             setTimeout(() => {
-              stepCount++;
-              document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
+                console.log(`Step detected! Total Steps: ${stepCount}`);
+                // You can add any additional actions here if necessary
             }, 500); 
-          }
+        }
+        
           
       }
     });
