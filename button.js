@@ -6,6 +6,7 @@ var isPaused = false;
 var workMode = null;
 let stepCount = 0;
 let totalTime = 0; 
+let pausestep = false; 
 
 var goalDB; // IndexedDB database
 var db, logDB, scheduleDB, deadlineDB;
@@ -395,18 +396,26 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 30) {
+        if (magnitude > 30 && !isTracking) {
             // Increment stepCount immediately
             stepCount++;
-        
-            // Update the step count in the DOM
-            document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
-        
-            // Set a timeout to perform additional actions after 500ms
+            pausestep = true;
+            
+            // Set a timeout of 500ms to register the step after the detected movement
             setTimeout(() => {
-                console.log(`Step detected! Total Steps: ${stepCount}`);
-                // You can add any additional actions here if necessary
-            }, 500); 
+              // Increment step count and total time after the timeout
+              stepCount++;
+              totalTime += timePerStep;
+      
+              // Update the displayed values
+              document.getElementById("pawsbutton").innerText = `Steps: ${stepCount}`;
+              
+              // Log the current step count and total time
+              console.log(`Step detected! Total Steps: ${stepCount}, Total Time: ${totalTime} seconds`);
+      
+              // Reset the tracking flag after 500ms, allowing the next step to be detected
+              pausestep = false;
+            }, 500);
         }
         
           
