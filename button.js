@@ -399,6 +399,7 @@ function requestPermission() {
         if (magnitude > 30 && !pausestep) {
             stepCount++;
             pausestep = true;
+            alert('movin.')
         
             setTimeout(() => {
               stepCount++;
