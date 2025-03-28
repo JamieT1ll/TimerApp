@@ -396,7 +396,7 @@ function requestPermission() {
   
         
         if (magnitude > 50) {
-           
+            alert('Please fill in all fields.');
             setTimeout(() => {
               stepCount++;
               document.getElementById("stepview").innerText = `Steps: ${stepCount}`;
