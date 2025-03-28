@@ -57,7 +57,7 @@ function AttemptLogin() {
         const user = request.result;
         if (user.password === logpassword) {
             alert("Login successful!");
-            window.location.href = 'index.html';
+            window.location.href = 'button.html';
         } else {
             alert("Invalid username or password.");
         }
@@ -88,7 +88,7 @@ function CreateAccount() {
 
     request.onsuccess = function() {
         alert("Account created successfully!");
-        window.location.href = 'index.html';
+        window.location.href = 'button.html';
     };
     request.onerror = function() {
         alert("Error creating account. Please try again.");

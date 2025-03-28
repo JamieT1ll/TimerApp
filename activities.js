@@ -17,7 +17,7 @@ let currentDate = new Date();
 
         if (!db.objectStoreNames.contains("activities")) {
             db.createObjectStore("activities", { keyPath: "name" }); 
-            store.createIndex("timeSpent", "timeSpent", { unique: false }); // Index for timeSpent
+            store.createIndex("timeSpent", "timeSpent", { unique: false }); //Index for timeSpent
         }
     };
 
@@ -104,7 +104,7 @@ let currentDate = new Date();
             // Insert the total time counter at top
             const tallyDiv = document.createElement("div");
             tallyDiv.classList.add("activity-item", "tally-item"); // Add a specific class for styling
-            tallyDiv.innerHTML = "No Activities Created!"; // Placeholder while tally is being calculated
+            tallyDiv.innerHTML = "No Activities Created!"; //Placeholder while tally is being calculated
             activityList.appendChild(tallyDiv); // Insert it at the top
     
             const activities = e.target.result;
@@ -113,7 +113,7 @@ let currentDate = new Date();
                 const div = document.createElement("div");
                 div.classList.add("activity-item");
     
-                // find logs for the current activity
+                //find logs for the current activity
                 getActivityLogs(activity.name, function (totalTime) {
                     const formattedTime = formatTime(totalTime);
                     div.textContent = `${activity.name} (${activity.mode}) - Time Spent: ${formattedTime}`;
@@ -297,10 +297,8 @@ let currentDate = new Date();
         updateDateDisplay();
     }
 
-    
-    
 
-    // Expose functions globally for button clicks
+    //Expose functions globally for button clicks
     window.incrementDate = incrementDate;
     window.decrementDate = decrementDate;
     window.incrementText = incrementText;

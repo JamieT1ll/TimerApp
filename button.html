@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="frame.css">
+    <link rel="stylesheet" href="home.css">
+    <script src="button.js"></script>
+    <link rel="manifest" href="https://jamiet1ll.github.io/TimerApp/manifest/manifest.json">
+    <title>Work/Life</title>
+</head>
+<body>
+    <div class="Title">
+        <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="cont">
+
+        <div id="stepcount">
+            <span class="eventtext">
+                Steps Taken:
+                    <div id="stepview"></div>     
+            </span>
+            <button onclick="Closepopup()">Close</button>
+        </div>
+
+        <div id="schedulealert">
+            <span class="eventtext">
+                Current Scheduled Activity:
+                <div class="row-container">
+                    <p id="alert"></p>
+                    <div id="stime"></div>
+                </div>
+            </span>
+            <button onclick="Closepopup()">Ignore</button>
+        </div>
+        
+
+        <button class="workbutton" id="timerbutton" onclick="stopwclick()">
+            <div id="time">00:00:00</div>
+            <div id="myActivity"></div>
+        </button>
+        
+        <br><br>
+
+        
+        <div class="buttonbuttons">
+        <button class="pausebutton" id="pawsbutton" onclick="pausetimer()">
+         Pause
+        </button>
+        <button class="pausebutton" id="endbutton" onclick="endActivity()">
+            End
+           </button>
+        </div>
+        
+
+        <div class="popup">
+            <span class="popuptext" id="myPopup">
+                Recommended Activities:
+                <p id="Recommended"></p>
+  
+                
+                What activity would you like to select?
+        <br>
+                <select id="activityDropdown">
+                <option value="" disabled selected>Select an activity</option>
+                 </select>
+                <div class="popup-buttons">
+                    <button onclick="Closepopup()">Cancel</button>
+                    <button onclick="startActivity()">OK</button>
+                </div>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="button-container">
+        <a href="activities.html"><button class="button"><img src="./images/Analytics.png"></button></a>
+        <a href="button.html"><button class="button-main"><img src="./images/Timer.png"></b>
+        <a href="calender.html"><button class="button"><img src="./images/Calender.png"></a></button>
+    </div>
+</body>
+</html>
