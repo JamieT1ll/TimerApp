@@ -388,6 +388,7 @@ function requestPermission() {
       const { acceleration } = event;
   
       if (acceleration) {
+        alert("yeah it moving");
         const magnitude = Math.sqrt(
           Math.pow(acceleration.x || 0, 2) +
           Math.pow(acceleration.y || 0, 2) +
