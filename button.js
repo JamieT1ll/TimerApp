@@ -396,7 +396,7 @@ function requestPermission() {
         );
   
         
-        if (magnitude > 8 && !pausestep) {
+        if (magnitude > 5 && !pausestep) {
             stepCount++;
             pausestep = true;      
             setTimeout(() => {
